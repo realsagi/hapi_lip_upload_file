@@ -8,7 +8,6 @@ export interface IRegister {
 export interface IOptions {
     rootPath: string;
     mimeValidate: Array<string>;
-    mongooseConnection: any;
 }
 
 export interface IUploadImages {

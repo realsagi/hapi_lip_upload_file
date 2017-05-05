@@ -19,7 +19,8 @@ export default class UploadFile implements IImages {
     }
 
     public init (): void {
-        this.imagesModel = new Images(this.server, this.options.mongooseConnection);
+        let db: any = this.server.plugins['hapi-mongoose'].connection;
+        this.imagesModel = new Images(this.server, db);
     }
 
     private randomString (): string {
