@@ -16,11 +16,13 @@ export default class UploadFile implements IImages {
     constructor (server: Hapi.Server, options: IOptions) {
         this.server = server;
         this.options = options;
+        let db: any = this.server.plugins['hapi-mongoose'].connection;
+        this.imagesModel = new Images(this.server, db);
     }
 
     public init (): void {
-        let db: any = this.server.plugins['hapi-mongoose'].connection;
-        this.imagesModel = new Images(this.server, db);
+        let uploadImages: any = new UploadFile(this.server, this.options);
+        uploadImages.registerMethod();
     }
 
     private randomString (): string {
