@@ -87,4 +87,13 @@ export default class ServiceUpload implements IImages {
         });
     }
 
+     public registerMethod (): void {
+       this.server.method({
+            name: 'upload.file',
+            method: this.uploadImages,
+            options: {
+                callback: false
+            }
+        });
+    }
 }
