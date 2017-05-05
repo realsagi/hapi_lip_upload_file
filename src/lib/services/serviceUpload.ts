@@ -74,7 +74,7 @@ export default class ServiceUpload implements IImages {
         });
     }
 
-    public uploadImages (data: IUploadImages): any {
+    public uploadImages = (data: IUploadImages): any => {
         return this.writeFile(data).then((result: any) => {
             let dataForSave: ISaveImagesMongoose = {
                 tableName: data.tableName,
