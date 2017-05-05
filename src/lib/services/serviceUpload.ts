@@ -14,7 +14,9 @@ export default class ServiceUpload implements IImages {
     private imagesModel: any;
 
     constructor (server: Hapi.Server, options: IOptions) {
-        let db: any = this.server.plugins['hapi-mongoose'].connection;
+        this.server = server;
+        this.options = options;
+        let db: any = server.plugins['hapi-mongoose'].connection;
         this.imagesModel = new Images(this.server, db);
     }
 
