@@ -62,7 +62,7 @@ export default class ServiceUpload implements IImages {
 
     private writeFile (data: any): Promise<any> {
         let now: Date = new Date();
-        let subPath: string = "/" + now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay();
+        let subPath: string = "/" + now.getFullYear() + "/" + now.getMonth() + "/" + now.getDate();
         let path: string = this.options.rootPath + subPath + "/";
         let fileType: string = data.fileName.substring(data.fileName.indexOf("."));
         let pathFile: string = path + this.randomString() + fileType;
